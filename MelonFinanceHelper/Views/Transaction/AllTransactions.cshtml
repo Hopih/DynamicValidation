@@ -1,0 +1,71 @@
+﻿@model List<MelonFinanceHelper.Models.Transaction>
+@{
+    ViewData["Title"] = "Транзакции";
+}
+
+<div class="melon-main">
+    <a asp-controller="Transaction" asp-action="CreateTransaction" class="btn-add-transaction">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+        Добавить транзакцию
+    </a>
+
+    <a asp-controller="Transaction" asp-action="DownloadCsv" class="btn-add-transaction">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+        Экпортировать
+    </a>
+
+    <div class="transaction-card">
+ 
+
+        @if (Model == null || !Model.Any())
+        {
+            <p style="text-align:center; color:var(--text-muted); padding:20px 0;">Транзакций пока нет</p>
+        }
+        else
+        {
+            @foreach (var t in Model)
+            {
+                bool isIncome = t.type == "доход";
+                string amountClass = isIncome ? "income" : "expense";
+                string sign = isIncome ? "+" : "-";
+                string iconPath = isIncome
+                ? "M12 8l-3 3m3-3l3 3m-3-3v8"
+                : "M12 16l-3-3m3 3l3-3m-3 3V8";
+
+                <div class="transaction-row">
+                    <div class="transaction-icon @amountClass">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="@(isIncome ? "#2E7D32" : "#C62828")" stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="@iconPath" />
+                        </svg>
+                    </div>
+
+                    <div class="transaction-info">
+                        <div class="transaction-amount @amountClass">@sign@t.money</div>
+                        <div class="transaction-category">@t.category</div>
+                    </div>
+
+                    <div class="transaction-meta">
+                        <span class="transaction-date">@t.date</span>
+                        <span class="transaction-comment">@t.comment</span>
+                    </div>
+
+                    <form asp-action="DeleteTransaction" asp-controller="Transaction" method="post" style="margin:0;">
+                        <input type="hidden" name="id" value="@t.Id" />
+                        <button type="submit" class="btn-delete" title="Удалить">
+                            🗑
+                        </button>
+                    </form>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Добавить транзакцию";
+}
+
+<div class="melon-main">
+    <div class="melon-form-card">
+        <form method="post">
+            <div>
+                <label class="melon-form-label">Тип операции</label>
+                <select name="type" class="melon-form-control melon-form-select" required>
+                    <option value="" disabled selected>Выберите тип операции...</option>
+                    <option value="доход">Доход</option>
+                    <option value="расход">Расход</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="melon-form-label">Сумма</label>
+                <input type="number" name="money" class="melon-form-control" placeholder="Введите сумму..." required min="1" />
+            </div>
+
+            <div class="melon-form-row">
+                <div>
+                    <label class="melon-form-label">Категория</label>
+                    <input type="text" name="category" class="melon-form-control" placeholder="Введите категорию..." required />
+                </div>
+                <div>
+                    <label class="melon-form-label">Дата</label>
+                    <input type="text" name="date" class="melon-form-control" placeholder="дд.мм" />
+                </div>
+            </div>
+
+            <div>
+                <label class="melon-form-label">Комментарий</label>
+                <textarea name="comment" class="melon-form-control" placeholder="Введите комментарий..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Готово</button>
+        </form>
+    </div>
+</div>
