@@ -26,7 +26,7 @@ public class Solution
                     }
                 }
             }
-        }, token);r
+        }, token);
         Task t2 = new Task(() =>
         {
             foreach (var num in usersEmailConfirmed)
