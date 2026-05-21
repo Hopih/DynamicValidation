@@ -18,9 +18,17 @@ public class Solution2
             {
                 while (!r.EndOfStream)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        break;
+                    }
                     string line = r.ReadLine();
                     int number = int.Parse(line);
 
+                    if (number < 0)
+                    {
+                        cancellationToken.Cancel();
+                    }
                     lock (locker)
                     {
                         totalSales += number;
@@ -28,5 +36,69 @@ public class Solution2
                 }
             }
         },token);
-    }
+
+        Task t2 = new Task(() =>
+        {
+            using (StreamReader r = new StreamReader(errorsFile))
+            {
+                while (!r.EndOfStream)
+                {
+                    if (token.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    string line = r.ReadLine();
+                    if (line == null)
+                    {
+                        cancellationToken.Cancel();
+                    }
+                    
+                    if (line == "ERROR")
+                    {
+                        lock (locker)
+                        {
+                            errorCount += 1;
+                        }
+                    }
+                }
+            }
+        },token);
+        
+        HashSet<string> table = new HashSet<string>();
+
+        Task t3 = new Task(() =>
+            {
+                using (StreamReader r = new StreamReader(clientsFile))
+                {
+                    while (!r.EndOfStream)
+                    {
+                        if (token.IsCancellationRequested)
+                        {
+                            break;
+                        }
+                        string line = r.ReadLine();
+                        if (line == null || line == "CRITICAL")
+                        {
+                            cancellationToken.Cancel();
+                        } 
+                        lock (locker)
+                        {
+                            if (table.Contains(line))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                table.Add(line);
+                                uniqueClients++;
+                            }
+                        }
+                    }
+                }
+            } , token
+        );
+        t1.Start();
+        t2.Start();
+        t3.Start();
+    }       
 }
