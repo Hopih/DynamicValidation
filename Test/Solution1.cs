@@ -1,6 +1,6 @@
 ﻿namespace Test;
 
-public class Solution
+public class Solution1
 {
     public void ProcessData(int[] orders, bool[] usersEmailConfirmed, int[] productStocks)
     {
