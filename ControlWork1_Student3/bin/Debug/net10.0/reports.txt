@@ -1,0 +1,4 @@
+Food;120
+Transport;80
+Food;150
+Books;300

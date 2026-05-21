@@ -1,0 +1,14 @@
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\bin\Debug\net10.0\ControlWork1_Student3.exe
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\bin\Debug\net10.0\ControlWork1_Student3.deps.json
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\bin\Debug\net10.0\ControlWork1_Student3.runtimeconfig.json
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\bin\Debug\net10.0\ControlWork1_Student3.dll
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\bin\Debug\net10.0\ControlWork1_Student3.pdb
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.AssemblyInfoInputs.cache
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.AssemblyInfo.cs
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.csproj.CoreCompileInputs.cache
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.dll
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\refint\ControlWork1_Student3.dll
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.pdb
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ControlWork1_Student3.genruntimeconfig.cache
+C:\Users\Amir\RiderProjects\ControlWork1\ControlWork1_Student3\obj\Debug\net10.0\ref\ControlWork1_Student3.dll

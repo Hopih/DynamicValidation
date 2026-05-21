@@ -1,0 +1,3 @@
+Food: count=2, sum=270
+Transport: count=1, sum=80
+Books: count=1, sum=300
