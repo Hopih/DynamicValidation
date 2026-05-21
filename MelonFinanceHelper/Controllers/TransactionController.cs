@@ -10,10 +10,10 @@ namespace MelonFinanceHelper.Controllers
     public class TransactionController : Controller
     {
         private readonly AppDbContext _appDb;
-
         public TransactionController(AppDbContext appDb)
         {
             _appDb = appDb;
+            Console.WriteLine("123");
         }
 
         [HttpGet]
@@ -22,7 +22,7 @@ namespace MelonFinanceHelper.Controllers
             ViewBag.AllTransactions = _appDb.transactions.ToList();
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult CreateTransaction(string comment, string category, string type, string date, int money)
         {
@@ -39,8 +39,8 @@ namespace MelonFinanceHelper.Controllers
 
             _appDb.transactions.Add(transaction);
             _appDb.SaveChanges();
-
-
+            
+            
             return RedirectToAction("AllTransactions", "Transaction");
         }
 
@@ -59,13 +59,12 @@ namespace MelonFinanceHelper.Controllers
         [HttpGet]
         public IActionResult AllTransactions()
         {
-
+            
             var transactions = _appDb.transactions.ToList();
             ViewBag.AllTransactions = transactions;
             return View(transactions);
         }
-
-
+        
         [HttpGet]
         public async Task<FileResult> DownloadCsv()
         {
